@@ -57,6 +57,8 @@ def lambda_handler(event, context):
                     message = "DynamoDB autoscaling is `decreasing` provisioned write throughput from " + str(current_write_tput) + " to " + str(new_write_tput) + " for table *" + table_name + "*"
                 else:
                     message = "DynamoDB autoscaling is performing an unknown action for table *" + table_name + "*"
+                    print "Unknown action detected - raw event follows"
+                    print("Received event: " + json.dumps(event, indent=2))
 
                 status = send_to_slack(message,slack_channel,slack_api_token)
         else:
