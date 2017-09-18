@@ -1,11 +1,19 @@
-import boto3
 import json
 import sys,os
-import pprint
+from slacker import Slacker
 
 def send_to_slack(message,channel,key):
     status = True
     print "sending slack message " + message
+    emoji=":dynamodb-autoscaling:"
+
+    slack = Slacker(key)
+    slack.chat.post_message(
+        channel='#' + channel,
+        text=message,
+        as_user="false",
+        username="DynamoDB Notifier",
+        icon_emoji=emoji)
 
     return status
 
@@ -40,15 +48,15 @@ def lambda_handler(event, context):
 
             if event_name == "UpdateTable":
                 if new_read_tput > current_read_tput:
-                    message = "DynamoDB autoscaling is increasing provisioned read throughput from " + str(current_read_tput) + " to " + str(new_read_tput) + " for table " + table_name
+                    message = "DynamoDB autoscaling is `increasing` provisioned read throughput from " + str(current_read_tput) + " to " + str(new_read_tput) + " for table *" + table_name + "*"
                 elif new_read_tput < current_read_tput:
-                    message = "DynamoDB autoscaling is decreasing provisioned read throughput from " + str(current_read_tput) + " to " + str(new_read_tput) + " for table " + table_name
+                    message = "DynamoDB autoscaling is `decreasing` provisioned read throughput from " + str(current_read_tput) + " to " + str(new_read_tput) + " for table *" + table_name + "*"
                 elif new_write_tput > current_write_tput:
-                    message = "DynamoDB autoscaling is increasing provisioned write throughput from " + str(current_write_tput) + " to " + str(new_write_tput) + " for table " + table_name
+                    message = "DynamoDB autoscaling is `increasing` provisioned write throughput from " + str(current_write_tput) + " to " + str(new_write_tput) + " for table *" + table_name + "*"
                 elif new_write_tput > current_write_tput:
-                    message = "DynamoDB autoscaling is decreasing provisioned write throughput from " + str(current_write_tput) + " to " + str(new_write_tput) + " for table " + table_name
+                    message = "DynamoDB autoscaling is `decreasing` provisioned write throughput from " + str(current_write_tput) + " to " + str(new_write_tput) + " for table *" + table_name + "*"
                 else:
-                    message = "DynamoDB autoscaling is performing an unknown action for table " + table_name
+                    message = "DynamoDB autoscaling is performing an unknown action for table *" + table_name + "*"
 
                 status = send_to_slack(message,slack_channel,slack_api_token)
         else:
