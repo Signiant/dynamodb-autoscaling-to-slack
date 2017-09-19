@@ -53,7 +53,7 @@ def lambda_handler(event, context):
                     message = "DynamoDB autoscaling is `decreasing` provisioned read throughput from " + str(current_read_tput) + " to " + str(new_read_tput) + " for table *" + table_name + "*"
                 elif new_write_tput > current_write_tput:
                     message = "DynamoDB autoscaling is `increasing` provisioned write throughput from " + str(current_write_tput) + " to " + str(new_write_tput) + " for table *" + table_name + "*"
-                elif new_write_tput > current_write_tput:
+                elif new_write_tput < current_write_tput:
                     message = "DynamoDB autoscaling is `decreasing` provisioned write throughput from " + str(current_write_tput) + " to " + str(new_write_tput) + " for table *" + table_name + "*"
                 else:
                     message = "DynamoDB autoscaling is performing an unknown action for table *" + table_name + "*"
