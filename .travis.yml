@@ -11,4 +11,5 @@ deploy:
   file: dist/dynamodb-as-notify-slack.zip
   skip_cleanup: true
   on:
+    all_branches: true
     repo: Signiant/dynamodb-autoscaling-to-slack
