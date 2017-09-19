@@ -4,4 +4,4 @@ python:
 install:
   - pip install slacker -t ./dist
 # command to build
-script: build.sh
+script: ./build.sh
