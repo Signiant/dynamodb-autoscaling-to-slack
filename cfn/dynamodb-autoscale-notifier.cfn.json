@@ -42,8 +42,8 @@
       },
       "SlackChannel":{
          "Type":"String",
-         "Default":"general",
-         "Description":"Slack Channel to post scaling notifications to (omit the #)"
+         "Default":"#general",
+         "Description":"Slack Channel to post scaling notifications to"
       }
    },
    "Resources":{

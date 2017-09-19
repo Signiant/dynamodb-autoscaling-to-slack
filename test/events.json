@@ -1,4 +1,4 @@
-VALID SCALE UP OF READ
+VALID SCALE UP OF READ for a TABLE
 
 {
    "account":"1234567890",
@@ -92,7 +92,7 @@ VALID SCALE UP OF READ
    ]
 }
 
-valid scale up of WRITE
+valid scale up of WRITE for a TABLE
 
 {
    "account":"1234567890",
@@ -186,6 +186,207 @@ valid scale up of WRITE
    ]
 }
 
+valid scale up of an INDEX
+
+{
+   "account":"1234567890",
+   "region":"us-east-1",
+   "detail":{
+      "eventVersion":"1.05",
+      "eventID":"f5c6dd62-a339-47f3-996c-7392622ec3ea",
+      "eventTime":"2017-09-19T13:00:42Z",
+      "requestParameters":{
+         "globalSecondaryIndexUpdates":[
+            {
+               "update":{
+                  "provisionedThroughput":{
+                     "writeCapacityUnits":1,
+                     "readCapacityUnits":2
+                  },
+                  "indexName":"userId-eventId-index"
+               }
+            }
+         ],
+         "tableName":"MY_TABLE"
+      },
+      "eventType":"AwsApiCall",
+      "responseElements":{
+         "tableDescription":{
+            "globalSecondaryIndexes":[
+               {
+                  "indexSizeBytes":157551460,
+                  "indexName":"userId-eventId-index",
+                  "projection":{
+                     "projectionType":"ALL"
+                  },
+                  "provisionedThroughput":{
+                     "writeCapacityUnits":1,
+                     "numberOfDecreasesToday":0,
+                     "lastIncreaseDateTime":"Sep 14, 2017 9:26:52 PM",
+                     "readCapacityUnits":1,
+                     "lastDecreaseDateTime":"Sep 15, 2017 4:19:06 AM"
+                  },
+                  "keySchema":[
+                     {
+                        "keyType":"HASH",
+                        "attributeName":"userId"
+                     },
+                     {
+                        "keyType":"RANGE",
+                        "attributeName":"eventId"
+                     }
+                  ],
+                  "indexArn":"arn:aws:dynamodb:us-east-1:1234567890:table/MY_TABLE/index/userId-eventId-index",
+                  "itemCount":448089,
+                  "indexStatus":"UPDATING"
+               },
+               {
+                  "indexSizeBytes":24587799,
+                  "indexName":"tenantId-eventId-index",
+                  "projection":{
+                     "projectionType":"ALL"
+                  },
+                  "provisionedThroughput":{
+                     "writeCapacityUnits":1,
+                     "numberOfDecreasesToday":0,
+                     "lastIncreaseDateTime":"Sep 14, 2017 9:26:52 PM",
+                     "readCapacityUnits":1,
+                     "lastDecreaseDateTime":"Sep 15, 2017 4:18:39 AM"
+                  },
+                  "keySchema":[
+                     {
+                        "keyType":"HASH",
+                        "attributeName":"tenantId"
+                     },
+                     {
+                        "keyType":"RANGE",
+                        "attributeName":"eventId"
+                     }
+                  ],
+                  "indexArn":"arn:aws:dynamodb:us-east-1:1234567890:table/MY_TABLE/index/tenantId-eventId-index",
+                  "itemCount":62154,
+                  "indexStatus":"ACTIVE"
+               },
+               {
+                  "indexSizeBytes":88513330,
+                  "indexName":"portalId-eventId-index",
+                  "projection":{
+                     "projectionType":"ALL"
+                  },
+                  "provisionedThroughput":{
+                     "writeCapacityUnits":1,
+                     "numberOfDecreasesToday":0,
+                     "lastIncreaseDateTime":"Sep 14, 2017 9:26:45 PM",
+                     "readCapacityUnits":1,
+                     "lastDecreaseDateTime":"Sep 15, 2017 4:18:39 AM"
+                  },
+                  "keySchema":[
+                     {
+                        "keyType":"HASH",
+                        "attributeName":"portalId"
+                     },
+                     {
+                        "keyType":"RANGE",
+                        "attributeName":"eventId"
+                     }
+                  ],
+                  "indexArn":"arn:aws:dynamodb:us-east-1:1234567890:table/MY_TABLE/index/portalId-eventId-index",
+                  "itemCount":212916,
+                  "indexStatus":"ACTIVE"
+               }
+            ],
+            "attributeDefinitions":[
+               {
+                  "attributeName":"accountId",
+                  "attributeType":"S"
+               },
+               {
+                  "attributeName":"eventId",
+                  "attributeType":"S"
+               },
+               {
+                  "attributeName":"someId",
+                  "attributeType":"S"
+               },
+               {
+                  "attributeName":"moreId",
+                  "attributeType":"S"
+               },
+               {
+                  "attributeName":"userId",
+                  "attributeType":"S"
+               }
+            ],
+            "tableArn":"arn:aws:dynamodb:us-east-1:1234567890:table/MY_TABLE",
+            "provisionedThroughput":{
+               "writeCapacityUnits":1,
+               "numberOfDecreasesToday":0,
+               "lastIncreaseDateTime":"Sep 14, 2017 9:27:10 PM",
+               "readCapacityUnits":5,
+               "lastDecreaseDateTime":"Sep 15, 2017 4:18:26 AM"
+            },
+            "tableSizeBytes":162474878,
+            "tableName":"MY_TABLE",
+            "tableStatus":"ACTIVE",
+            "tableId":"3dc96f8e-75b2-4354-a07d-4078c0e9d8cb",
+            "keySchema":[
+               {
+                  "keyType":"HASH",
+                  "attributeName":"accountId"
+               },
+               {
+                  "keyType":"RANGE",
+                  "attributeName":"eventId"
+               }
+            ],
+            "latestStreamLabel":"2016-08-12T19:09:05.030",
+            "streamSpecification":{
+               "streamViewType":"NEW_AND_OLD_IMAGES",
+               "streamEnabled":true
+            },
+            "itemCount":463278,
+            "creationDateTime":"May 27, 2014 1:12:44 PM",
+            "latestStreamArn":"arn:aws:dynamodb:us-east-1:1234567890:table/MY_TABLE/stream/2016-08-12T19:09:05.030"
+         }
+      },
+      "awsRegion":"us-east-1",
+      "eventName":"UpdateTable",
+      "userIdentity":{
+         "principalId":"AROAIQP76C3C4KYYZMGZI:AutoScaling-UpdateDesiredCapacity",
+         "accessKeyId":"ASIAIUQNCAKRXQU7T44A",
+         "invokedBy":"application-autoscaling.amazonaws.com",
+         "sessionContext":{
+            "sessionIssuer":{
+               "userName":"DynamoDBAutoscaleRole",
+               "type":"Role",
+               "arn":"arn:aws:iam::1234567890:role/service-role/DynamoDBAutoscaleRole",
+               "principalId":"AROAIQP76C3C4KYYZMGZI",
+               "accountId":"1234567890"
+            },
+            "attributes":{
+               "creationDate":"2017-09-19T12:55:33Z",
+               "mfaAuthenticated":"false"
+            }
+         },
+         "type":"AssumedRole",
+         "arn":"arn:aws:sts::1234567890:assumed-role/DynamoDBAutoscaleRole/AutoScaling-UpdateDesiredCapacity",
+         "accountId":"1234567890"
+      },
+      "eventSource":"dynamodb.amazonaws.com",
+      "requestID":"IPKL5I3AEFNS9P48TROGBL2UCBVV4KQNSO5AEMVJF66Q9ASUAAJG",
+      "apiVersion":"2012-08-10",
+      "userAgent":"application-autoscaling.amazonaws.com",
+      "sourceIPAddress":"application-autoscaling.amazonaws.com"
+   },
+   "detail-type":"AWS API Call via CloudTrail",
+   "source":"aws.dynamodb",
+   "version":"0",
+   "time":"2017-09-19T13:00:42Z",
+   "id":"c83c94c6-482d-432a-befb-1342553dcd3a",
+   "resources":[
+
+   ]
+}
 
 Action in progress
 
