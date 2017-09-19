@@ -55,7 +55,7 @@ def lambda_handler(event, context):
                 # Now we need to get the current tput which is in an array in the response
                 # unlike the requestParameters, the responseElements contains all indexes...
                 for gsi in event['detail']['responseElements']['tableDescription']['globalSecondaryIndexes']:
-                    print "Read index info for " + gsi['indexName']
+                    print "Found GSI: " + gsi['indexName']
                     if gsi['indexName'] == index_name_update:
                         current_read_tput=gsi['provisionedThroughput']['readCapacityUnits']
                         current_write_tput=gsi['provisionedThroughput']['writeCapacityUnits']
