@@ -1,7 +1,14 @@
 language: python
 python:
-  - "2.7"
+- '2.7'
 install:
-  - pip install slacker -t ./dist
-# command to build
+- pip install slacker -t ./dist
 script: ./build.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: zznpDo66qCeJlUed68Ew8EFZp8qiNODTXdo90JIr7AqLmD48hMYl6MjaajH5MSXYmjtf2KPqlxGBSKWqyssp8GayrMySbtskCvZWF4dR4nyacW+gNvR4lrylk6mQhT0Fhy1THoBlalAgRKUc5/jx4YKtHFiSUES9wYLlgeFC2mxcguwuGwibkqU36/bxgJw2Fuw4793kEy1sbkW73QMNgtFNMo554rp6jQhQfeQzHXSp8ox5ObIRkt0R5bVSg9C9+NOHyvhPEFpNzIvDLFtrZbXqXINPrylvY+Zp1Iw8vnjVUVUb8YKYKiUu9wLZ9q973csjg6zpMW6dwaMryEh9Bfz+dReCL4n9BSYtLR/M3FA3ke6dxLc6zcFcT0vY8Pfa5PnEvrqcEfCxQ5pKo4TP1z5qqOfTxQYAHfg7/ksbQWcWTMCu5voAyzjeY8X6GyCowOOM7bYuaZ2Nu4I9zTy8NAZt5bgxVxrmSBDoFDZ3CrBAqefG2FD9ksHc4XejMZd1wR+3hicU7gvY7ZYOuG1laLrIf6gF8eI3YfIPbBvxyJlR0DOM3bnbuTZD5wc1tJ5ZJ5God4FePm/vEnLkLmKfo9/uBFvkajStVnLgabm6g7UiDhpmePuYGeO2aSLAwrX+umTFN7CYSGorhI43o7uvh2WsOUqdip1SvWkxxfngRsg=
+  file: dist/dynamodb-as-notify-slack.zip
+  skip_cleanup: true
+  on:
+    repo: Signiant/dynamodb-autoscaling-to-slack
