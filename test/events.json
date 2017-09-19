@@ -1,0 +1,247 @@
+VALID SCALE UP OF READ
+
+{
+   "account":"1234567890",
+   "region":"us-east-1",
+   "detail":{
+      "eventVersion":"1.05",
+      "eventID":"b2bdacc6-d1bd-44b0-8251-d90e8a57ce00",
+      "eventTime":"2017-09-18T16:50:25Z",
+      "requestParameters":{
+         "provisionedThroughput":{
+            "writeCapacityUnits":1,
+            "readCapacityUnits":5
+         },
+         "tableName":"MY_TABLE"
+      },
+      "eventType":"AwsApiCall",
+      "responseElements":{
+         "tableDescription":{
+            "tableArn":"arn:aws:dynamodb:us-east-1:123456789:table/MY_TABLE",
+            "attributeDefinitions":[
+               {
+                  "attributeName":"mykey",
+                  "attributeType":"S"
+               },
+               {
+                  "attributeName":"mysort",
+                  "attributeType":"S"
+               }
+            ],
+            "provisionedThroughput":{
+               "writeCapacityUnits":1,
+               "numberOfDecreasesToday":0,
+               "lastIncreaseDateTime":"Sep 18, 2017 4:50:25 PM",
+               "readCapacityUnits":10,
+               "lastDecreaseDateTime":"Sep 14, 2017 6:20:56 PM"
+            },
+            "tableSizeBytes":610,
+            "tableName":"MY_TABLE",
+            "tableStatus":"UPDATING",
+            "tableId":"c65218b8-eba2-452c-93fe-624db8510abf",
+            "keySchema":[
+               {
+                  "keyType":"HASH",
+                  "attributeName":"mykey"
+               },
+               {
+                  "keyType":"RANGE",
+                  "attributeName":"mysort"
+               }
+            ],
+            "itemCount":2,
+            "creationDateTime":"Sep 14, 2017 5:29:45 PM"
+         }
+      },
+      "awsRegion":"us-east-1",
+      "eventName":"UpdateTable",
+      "userIdentity":{
+         "principalId":"XXXXXXXXXXXX:AutoScaling-UpdateDesiredCapacity",
+         "accessKeyId":"XXXXXXXXXXX",
+         "invokedBy":"application-autoscaling.amazonaws.com",
+         "sessionContext":{
+            "sessionIssuer":{
+               "userName":"DynamoDBAutoscaleRole",
+               "type":"Role",
+               "arn":"arn:aws:iam::1234567890:role/service-role/DynamoDBAutoscaleRole",
+               "principalId":"XXXXXXXXXXXXX",
+               "accountId":"1234567890"
+            },
+            "attributes":{
+               "creationDate":"2017-09-18T16:50:25Z",
+               "mfaAuthenticated":"false"
+            }
+         },
+         "type":"AssumedRole",
+         "arn":"arn:aws:sts::1234567890:assumed-role/DynamoDBAutoscaleRole/AutoScaling-UpdateDesiredCapacity",
+         "accountId":"1234567890"
+      },
+      "eventSource":"dynamodb.amazonaws.com",
+      "requestID":"FHH5PAG28I2FEUL53VDKBDTLMBVV4KQNSO5AEMVJF66Q9ASUAAJG",
+      "apiVersion":"2012-08-10",
+      "userAgent":"application-autoscaling.amazonaws.com",
+      "sourceIPAddress":"application-autoscaling.amazonaws.com"
+   },
+   "detail-type":"AWS API Call via CloudTrail",
+   "source":"aws.dynamodb",
+   "version":"0",
+   "time":"2017-09-18T16:50:25Z",
+   "id":"cc386a5c-c344-3474-cf1e-8b6cdd7dd6b5",
+   "resources":[
+
+   ]
+}
+
+valid scale up of WRITE
+
+{
+   "account":"1234567890",
+   "region":"us-east-1",
+   "detail":{
+      "eventVersion":"1.05",
+      "eventID":"6afdfbe9-ce77-4987-ab5b-4d1b9cc08bd6",
+      "eventTime":"2017-09-18T16:51:43Z",
+      "requestParameters":{
+         "provisionedThroughput":{
+            "writeCapacityUnits":4,
+            "readCapacityUnits":5
+         },
+         "tableName":"MY_TABLE"
+      },
+      "eventType":"AwsApiCall",
+      "responseElements":{
+         "tableDescription":{
+            "tableArn":"arn:aws:dynamodb:us-east-1:1234567890:table/MY_TABLE",
+            "attributeDefinitions":[
+               {
+                  "attributeName":"mykey",
+                  "attributeType":"S"
+               },
+               {
+                  "attributeName":"mysort",
+                  "attributeType":"S"
+               }
+            ],
+            "provisionedThroughput":{
+               "writeCapacityUnits":1,
+               "numberOfDecreasesToday":0,
+               "lastIncreaseDateTime":"Sep 18, 2017 4:51:43 PM",
+               "readCapacityUnits":5,
+               "lastDecreaseDateTime":"Sep 14, 2017 6:20:56 PM"
+            },
+            "tableSizeBytes":610,
+            "tableName":"MY_TABLE",
+            "tableStatus":"UPDATING",
+            "tableId":"c65218b8-eba2-452c-93fe-624db8510abf",
+            "keySchema":[
+               {
+                  "keyType":"HASH",
+                  "attributeName":"mykey"
+               },
+               {
+                  "keyType":"RANGE",
+                  "attributeName":"mysort"
+               }
+            ],
+            "itemCount":2,
+            "creationDateTime":"Sep 14, 2017 5:29:45 PM"
+         }
+      },
+      "awsRegion":"us-east-1",
+      "eventName":"UpdateTable",
+      "userIdentity":{
+         "principalId":"XXXXXXXXXXXX:AutoScaling-RetrieveCurrentCapacity",
+         "accessKeyId":"XXXXXXXXXXXX",
+         "invokedBy":"application-autoscaling.amazonaws.com",
+         "sessionContext":{
+            "sessionIssuer":{
+               "userName":"DynamoDBAutoscaleRole",
+               "type":"Role",
+               "arn":"arn:aws:iam::1234567890:role/service-role/DynamoDBAutoscaleRole",
+               "principalId":"XXXXXXXXXXXXXX",
+               "accountId":"1234567890"
+            },
+            "attributes":{
+               "creationDate":"2017-09-18T16:50:59Z",
+               "mfaAuthenticated":"false"
+            }
+         },
+         "type":"AssumedRole",
+         "arn":"arn:aws:sts::1234567890:assumed-role/DynamoDBAutoscaleRole/AutoScaling-RetrieveCurrentCapacity",
+         "accountId":"1234567890"
+      },
+      "eventSource":"dynamodb.amazonaws.com",
+      "requestID":"LQ46ILPKI4IIC6GTUBVO3TFAA7VV4KQNSO5AEMVJF66Q9ASUAAJG",
+      "apiVersion":"2012-08-10",
+      "userAgent":"application-autoscaling.amazonaws.com",
+      "sourceIPAddress":"application-autoscaling.amazonaws.com"
+   },
+   "detail-type":"AWS API Call via CloudTrail",
+   "source":"aws.dynamodb",
+   "version":"0",
+   "time":"2017-09-18T16:51:43Z",
+   "id":"c3cac45a-d7fb-3ef2-ec08-64c7f933de2b",
+   "resources":[
+
+   ]
+}
+
+
+Action in progress
+
+{
+   "account":"1234567890",
+   "region":"us-east-1",
+   "detail":{
+      "eventVersion":"1.05",
+      "errorCode":"ResourceInUseException",
+      "eventTime":"2017-09-18T16:50:25Z",
+      "requestParameters":{
+         "provisionedThroughput":{
+            "writeCapacityUnits":4,
+            "readCapacityUnits":1
+         },
+         "tableName":"MY_TABLE"
+      },
+      "eventType":"AwsApiCall",
+      "errorMessage":"Attempt to change a resource which is still in use: Table IOPS are currently being updated. Table: MY_TABLE",
+      "responseElements":null,
+      "awsRegion":"us-east-1",
+      "eventName":"UpdateTable",
+      "userIdentity":{
+         "principalId":"XXXXXXXXXXXX:AutoScaling-UpdateDesiredCapacity",
+         "accessKeyId":"XXXXXXXXXXXX",
+         "invokedBy":"application-autoscaling.amazonaws.com",
+         "sessionContext":{
+            "sessionIssuer":{
+               "userName":"DynamoDBAutoscaleRole",
+               "type":"Role",
+               "arn":"arn:aws:iam::1234567890:role/service-role/DynamoDBAutoscaleRole",
+               "principalId":"XXXXXXXXXXXXX",
+               "accountId":"1234567890"
+            },
+            "attributes":{
+               "creationDate":"2017-09-18T16:43:03Z",
+               "mfaAuthenticated":"false"
+            }
+         },
+         "type":"AssumedRole",
+         "arn":"arn:aws:sts::1234567890:assumed-role/DynamoDBAutoscaleRole/AutoScaling-UpdateDesiredCapacity",
+         "accountId":"1234567890"
+      },
+      "eventSource":"dynamodb.amazonaws.com",
+      "requestID":"9KJMHTQBDBKSPL9TTGVVFR91H7VV4KQNSO5AEMVJF66Q9ASUAAJG",
+      "apiVersion":"2012-08-10",
+      "userAgent":"application-autoscaling.amazonaws.com",
+      "eventID":"def58541-8ba6-4863-8d6f-c3f860ca4f26",
+      "sourceIPAddress":"application-autoscaling.amazonaws.com"
+   },
+   "detail-type":"AWS API Call via CloudTrail",
+   "source":"aws.dynamodb",
+   "version":"0",
+   "time":"2017-09-18T16:50:25Z",
+   "id":"1b8bc031-e7f0-f0e1-2800-56e77c0fdaa8",
+   "resources":[
+
+   ]
+}
