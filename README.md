@@ -1,6 +1,9 @@
 # dynamodb-autoscaling-to-slack
 Notifies in Slack when dynamoDB table autoscaling takes place
 
+[![Build Status](https://travis-ci.org/Signiant/dynamodb-autoscaling-to-slack.svg?branch=master)](https://travis-ci.org/Signiant/dynamodb-autoscaling-to-slack)
+
+
 # Purpose
 DynamoDB native autoscaling is fantastic but what happens if you want to see when it's actually scaling tables?  This project will use a lambda function to notify a slack channel when a table or index is autoscaled (up or down)
 
