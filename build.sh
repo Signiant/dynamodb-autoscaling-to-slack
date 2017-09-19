@@ -7,5 +7,4 @@ cp -f lambda/dynamodb-as-notify-slack.py ./dist/dynamodb-as-notify-slack.py
 pushd .
 cd dist
 zip -r dynamodb-as-notify-slack .
-rm -- !(dynamodb-as-notify-slack.zip)
 popd 
