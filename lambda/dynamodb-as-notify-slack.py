@@ -1,5 +1,6 @@
 import json
-import sys,os
+import os
+import re
 from slacker import Slacker
 
 def send_to_slack(message,channel,key):
@@ -43,6 +44,10 @@ def lambda_handler(event, context):
             region=event['region']
             event_name=event['detail']['eventName']
             table_name = event['detail']['requestParameters']['tableName']
+
+            if 'table_filter' in os.environ and re.match(os.environ['table_filter'], table_name) is None:
+                print "Table filtered: " + table_name
+                return status
 
             if 'globalSecondaryIndexUpdates' in event['detail']['requestParameters']:
                 # We are updating an index - find out which one

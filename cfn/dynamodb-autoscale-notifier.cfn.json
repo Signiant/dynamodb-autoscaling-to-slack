@@ -20,6 +20,14 @@
                   "SlackApiKey",
                   "SlackChannel"
                ]
+            },
+            {
+               "Label":{
+                  "default":"DynamoDB Notifier"
+               },
+               "Parameters":[
+                  "TableFilter"
+               ]
             }
          ]
       }
@@ -44,6 +52,11 @@
          "Type":"String",
          "Default":"#general",
          "Description":"Slack Channel to post scaling notifications to"
+      },
+      "TableFilter":{
+         "Type":"String",
+         "Default":"",
+         "Description":"Only post scaling notifications for tables that match the table filter regular expression"
       }
    },
    "Resources":{
@@ -111,6 +124,17 @@
                   },
                   "slack_channel":{
                      "Ref":"SlackChannel"
+                  },
+                  "table_filter": {
+                     "Fn::If": [
+                        "HasTableFilter",
+                        {
+                           "Ref": "TableFilter"
+                        },
+                        {
+                           "Ref": "AWS::NoValue"
+                        }
+                     ]
                   }
                }
             },
@@ -174,6 +198,20 @@
                ]
             }
          }
+      }
+   },
+   "Conditions": {
+      "HasTableFilter": {
+         "Fn::Not": [
+            {
+               "Fn::Equals": [
+                  "",
+                  {
+                     "Ref": "TableFilter"
+                  }
+               ]
+            }
+         ]
       }
    }
 }
