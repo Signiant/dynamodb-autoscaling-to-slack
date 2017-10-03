@@ -1,9 +1,14 @@
 language: python
 python:
-- '2.7'
+  - '2.7'
 install:
-- pip install slacker -t ./dist
-script: ./build.sh
+  - pip install slacker -t ./dist
+  - pip install flake8
+before_script:
+  - flake8 --version
+  - flake8 --ignore=E501 lambda/
+script:
+  - ./build.sh
 deploy:
   provider: releases
   api_key:
