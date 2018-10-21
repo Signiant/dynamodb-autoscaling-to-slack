@@ -160,6 +160,7 @@
                ],
                "detail":{
                   "userAgent":[
+                     "dynamodb.application-autoscaling.amazonaws.com",
                      "application-autoscaling.amazonaws.com"
                   ],
                   "eventName":[
