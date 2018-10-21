@@ -32,7 +32,7 @@ Optionally install the DDB custom emoji;
 
 ## AWS Setup
 
-> You must have [Cloudtrail enabled](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) in your AWS account for this solution to work.  It uses a [Cloudwatch rule triggered on a Cloudtrail event] (https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html) to capture the `UpdateTable` calls made by autoscaling (when setting up the trail, ensure it is monitoring "Write" Management Events)
+> You must have [Cloudtrail enabled](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) in your AWS account for this solution to work.  It uses a [Cloudwatch rule triggered on a Cloudtrail event](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html) to capture the `UpdateTable` calls made by autoscaling (when setting up the trail, ensure it is monitoring "Write" Management Events)
 
 * Grab the latest Lambda function zip from [Releases](https://github.com/Signiant/dynamodb-autoscaling-to-slack/releases)
 * Create a new cloudformation stack using the template in the cfn folder
