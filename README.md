@@ -14,18 +14,25 @@ DynamoDB native autoscaling is fantastic but what happens if you want to see whe
 # Installing and Configuring
 
 ## Slack Setup
-Before installing anything to AWS, you will need to configure a "bot" in Slack to handle the posts for you.  To do this:
-* In Slack, choose _Manage Apps_ -> _Custom Integrations_ -> _Bots_
-  * Add a new bot configuration
-  * username: dynamodb-notifier
-  * Copy the API Token.
-  * Don't worry about other parameters - the notifier over-rides them anyway
+Before installing anything to AWS, you will need to a "bot" in Slack to handle the posting for you. You need an API token for this bot and provide it in the CloudFormation setup parameters.
+
+The old method, which is now deprecated;
+* ~~In Slack, choose _Manage Apps_ -> _Custom Integrations_ -> _Bots_~~
+  * ~~Add a new bot configuration~~
+  * ~~username: dynamodb-notifier~~
+  * ~~Copy the API Token.~~
+  * ~~Don't worry about other parameters - the notifier over-rides them anyway~~
+
+Current working method;
+* Generate a [legacy API Token](https://api.slack.com/custom-integrations/legacy-tokens) (scroll down to "Legacy token generator", you may need to be logged in to slack workspace account)
+
+Optionally install the DDB custom emoji;
 * In Slack, upload a custom emoji and name it _:dynamodb-autoscaling:_
   * You can use any image here...one is provided in the _emoji_ folder of this project also
 
 ## AWS Setup
 
-> You must have [Cloudtrail enabled](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) in your AWS account for this solution to work.  It uses a [Cloudwatch rule triggered on a Cloudtrail event] (https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html) to capture the `UpdateTable` calls made by autoscaling.
+> You must have [Cloudtrail enabled](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) in your AWS account for this solution to work.  It uses a [Cloudwatch rule triggered on a Cloudtrail event](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html) to capture the `UpdateTable` calls made by autoscaling (when setting up the trail, ensure it is monitoring "Write" Management Events)
 
 * Grab the latest Lambda function zip from [Releases](https://github.com/Signiant/dynamodb-autoscaling-to-slack/releases)
 * Create a new cloudformation stack using the template in the cfn folder
